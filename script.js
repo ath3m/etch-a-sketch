@@ -29,8 +29,12 @@ btnClear.addEventListener('click', () => {
 const btnResize = document.querySelector('.resize')
 btnResize.addEventListener('click', () => {
     user_input = prompt("Enter number of squares: ")
+    if(user_input > 64 || user_input < 1 || user_input == null) {
+        alert('Enter number of squares within the range 1 - 64')
+        return
+    }
     grid.replaceChildren([])
-    createBoard(squares = user_input == null ? squares : user_input)
+    createBoard(squares = user_input == null || user_input > 64 || user_input < 1 ? squares : user_input)
     console.log(squares)
 })
 
